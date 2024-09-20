@@ -34,7 +34,7 @@ INSERT INTO CLIENTS (ClientID, ClientName) VALUES
 (5, 'Michael Brown'),
 (6, 'Sarah Wilson'),
 (7, 'David Lee'),
-(8, 'Karen Taylor'),
+(8, 'Karen Taylo'),
 (9, 'Chris Evans'),
 (10, 'Laura Walker');
 
@@ -85,3 +85,7 @@ INSERT INTO SHIPMENTS (ShipmentID, OrderID, DeliveryAddress) VALUES
 (8, 8, '505 Spruce St'),
 (9, 9, '606 Willow St'),
 (10, 10, '707 Redwood St');
+
+UPDATE CLIENTS
+SET ClientName = 'Laura Walker'
+WHERE ClientID = 8;
