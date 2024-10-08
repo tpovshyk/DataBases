@@ -33,19 +33,22 @@ CREATE INDEX idx_status ON opt_clients (status);
 -- good
    
 -- EXPLAIN ANALYZE
+WITH active_clients AS (
+    SELECT id, name, surname 
+    FROM opt_clients 
+    WHERE status = 'active'
+)
 SELECT 
-    c.name, 
-    c.surname, 
+    ac.name, 
+    ac.surname, 
     p.product_name, 
     o.order_date
 FROM 
     opt_orders o
 JOIN 
-    opt_clients c ON o.client_id = c.id
+    active_clients ac ON o.client_id = ac.id
 JOIN 
     opt_products p ON o.product_id = p.product_id
-WHERE 
-    c.status = 'active'
 ORDER BY 
     o.order_date DESC;
 
